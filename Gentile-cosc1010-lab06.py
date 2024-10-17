@@ -1,9 +1,9 @@
-# Your Name Here
+# Joshua Gentile
 # UWYO COSC 1010
-# Submission Date
+# Submission Date 10/17/2024
 # Lab 06
-# Lab Section: 
-# Sources, people worked with, help given to: 
+# Lab Section: 18
+# Sources, people worked with, help given to: Austin Barner
 # your
 # comments
 # here
@@ -70,6 +70,26 @@ print(len(random_string)) # Print out the size for reference
 # Output which letter occurred the most 
 # Output which letter occurred the least 
 # Output what the percentage of the string each character is, again in alphabetical
+dic = {}
+for letter in random_string.lower():
+    if letter in dic.keys():
+        dic[letter] += 1
+    else:
+        dic[letter] = 1
+dic = dict(sorted(dic.items()))
+print(dic)
+
+largest = "a"
+smallest = "a"
+
+for key in dic.keys():
+    if dic[key] > dic[largest]:
+        largest = key
+
+for key in dic.keys():
+    if dic[key] < dic[smallest]:
+        smallest = key
+
 
 #Tips and trick:
 # You can iterate through strings like you would a list
@@ -91,10 +111,13 @@ print("*"*75)
 most_occurred = ""
 least_occurred = ""
 
-print(f"The letter that occurred the most is {most_occurred}")
+print(f"The letter that occurred the most is {largest}")
 print("*"*75)
 # Output which letter occurred the least 
-print(f"The letter that occurred the most is {least_occurred}")
+print(f"The letter that occurred the most is {smallest}")
 print("*"*75)
-
+avg = []
 # Output what the percentage of the string each character is, again in alphabetical
+for key in dic.keys():
+    avg.append(dic[key] / 2500 * 100)
+print(avg)
